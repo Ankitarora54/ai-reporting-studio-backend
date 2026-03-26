@@ -1,1 +1,6 @@
-import express from 'express'; import cors from 'cors'; import dotenv from 'dotenv'; import portfolioRoutes from './routes/portfolio.js'; import commentaryRoutes from './routes/commentary.js'; import pdfRoutes from './routes/pdf.js'; dotenv.config(); const app=express(); app.use(cors()); app.use(express.json({limit:'10mb'})); app.use('/api/portfolio',portfolioRoutes); app.use('/api/commentary',commentaryRoutes); app.use('/api/pdf',pdfRoutes); app.get('/api/health',(_,res)=>res.json({ok:true})); const PORT=process.env.PORT||5000; app.listen(PORT,()=>console.log(`Server running on ${PORT}`));
+import express from 'express'; import cors from 'cors'; import dotenv from 'dotenv'; import portfolioRoutes from './routes/portfolio.js'; import commentaryRoutes from './routes/commentary.js'; import pdfRoutes from './routes/pdf.js'; dotenv.config(); const app = express(); app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://ai-reporting-studio-frontend.vercel.app"
+  ]
+})); app.use(express.json({ limit: '10mb' })); app.use('/api/portfolio', portfolioRoutes); app.use('/api/commentary', commentaryRoutes); app.use('/api/pdf', pdfRoutes); app.get('/api/health', (_, res) => res.json({ ok: true })); const PORT = process.env.PORT || 5000; app.listen(PORT, () => console.log(`Server running on ${PORT}`));
