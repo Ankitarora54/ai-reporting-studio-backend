@@ -1,1 +1,0 @@
-# AI Reporting Studio\n\nDark fintech-style React + Node monorepo for AI-powered fund factsheets.\n\n## Run\n```bash\nnpm install\ncp server/.env.example server/.env\nnpm run dev\n```

@@ -1,1 +1,0 @@
-export default function KpiCard({label,value,sub}){return <div className='card'><div className='label'>{label}</div><div className='value mt-2'>{value}</div>{sub && <div className='text-xs text-slate-400 mt-1'>{sub}</div>}</div>}
